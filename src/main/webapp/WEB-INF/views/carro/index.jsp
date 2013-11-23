@@ -14,8 +14,9 @@
 
 	<c:forEach items="${carros}" var="carro">
 		<tr>
+			<td><a href="${pageContext.request.contextPath}/carro/edit?id=${carro.getId()}">${carro.getId()}</a></td>
 			<td>${carro.getNome()}</td>
-			<td><a href="${pageContext.request.contextPath}/new/">Novo</a> |
+			<td><a href="${pageContext.request.contextPath}/carro/delete?id=${carro.getId()}">Remover</a> |
 				<a href="${pageContext.request.contextPath}/new/">Novo</a> | <a
 				href="${pageContext.request.contextPath}/new/">Novo</a></td>
 		</tr>

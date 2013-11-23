@@ -6,7 +6,7 @@
 
 <h2>Create</h2>
 
-<form action="create" method="post">
+<form action="edit" method="post">
 	<fieldset>
 		<legend>Nome</legend>
 
@@ -16,11 +16,11 @@
 			<label>Nome</label>
 		</div>
 		<div class="editor-field">
-			<input type="text" name="nome" class="form-control" placeholder="Nome">
+			<input type="text" name="nome" value="${carro.getNome()}" class="form-control" placeholder="Nome">
 		</div>
 
 		<p>
-			<button type="submit" class="btn btn-primary">Criar</button>
+			<button type="submit" class="btn btn-primary">Editar</button>
 		</p>
 	</fieldset>
 </form>
