@@ -18,6 +18,20 @@
 		<div class="editor-field">
 			<input type="text" name="nome" class="form-control" placeholder="Nome">
 		</div>
+		
+		<div class="editor-label">
+			<label>Placa</label>
+		</div>
+		<div class="editor-field">
+			<input type="text" name="placa" class="form-control" placeholder="Placa">
+		</div>
+		
+		<div class="editor-label">
+			<label>Ano</label>
+		</div>
+		<div class="editor-field">
+			<input type="text" name="ano" class="form-control" placeholder="Ano">
+		</div>
 
 		<p>
 			<button type="submit" class="btn btn-primary">Criar</button>

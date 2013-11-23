@@ -6,9 +6,10 @@
 </p>
 <table>
 	<tr>
+		<th></th>
 		<th>Nome</th>
-		<th></th>
-		<th></th>
+		<th>Placa</th>
+		<th>Ano</th>
 		<th></th>
 	</tr>
 
@@ -16,10 +17,9 @@
 		<tr>
 			<td><a href="${pageContext.request.contextPath}/carro/edit?id=${carro.getId()}">${carro.getId()}</a></td>
 			<td>${carro.getNome()}</td>
-			<td><a href="${pageContext.request.contextPath}/carro/delete?id=${carro.getId()}">Remover</a> |
-				<a href="${pageContext.request.contextPath}/new/">Novo</a> | <a
-				href="${pageContext.request.contextPath}/new/">Novo</a></td>
-		</tr>
+			<td>${carro.getPlaca()}</td>
+			<td>${carro.getAno()}</td>
+			<td><a href="${pageContext.request.contextPath}/carro/delete?id=${carro.getId()}">Remover</a>
 	</c:forEach>
 </table>
 

@@ -10,27 +10,27 @@
 	<fieldset>
 		<legend>Nome</legend>
 
-		<input type="hidden" name="id" value="${carro.getId()}">
+		<input type="hidden" name="id" value="${cliente.getId()}">
 
 		<div class="editor-label">
 			<label>Nome</label>
 		</div>
 		<div class="editor-field">
-			<input type="text" name="nome" value="${carro.getNome()}" class="form-control" placeholder="Nome">
+			<input type="text" name="nome" value="${cliente.getNome()}" class="form-control" placeholder="Nome">
 		</div>
 		
 		<div class="editor-label">
-			<label>Placa</label>
+			<label>CPF</label>
 		</div>
 		<div class="editor-field">
-			<input type="text" name="placa" value="${carro.getPlaca()}" class="form-control" placeholder="Placa">
+			<input type="text" name="cpf" value="${cliente.getCpf()}" class="form-control" placeholder="CPF">
 		</div>
-
+		
 		<div class="editor-label">
-			<label>Ano</label>
+			<label>Endereço</label>
 		</div>
 		<div class="editor-field">
-			<input type="text" name="ano" value="${carro.getAno()}" class="form-control" placeholder="Ano">
+			<input type="text" name="endereco" value="${cliente.getEndereco()}" class="form-control" placeholder="Endereço">
 		</div>
 
 		<p>

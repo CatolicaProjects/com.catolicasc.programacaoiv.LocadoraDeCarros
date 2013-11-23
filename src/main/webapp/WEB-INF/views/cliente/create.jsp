@@ -6,35 +6,35 @@
 
 <h2>Create</h2>
 
-<form action="edit" method="post">
+<form action="create" method="post">
 	<fieldset>
 		<legend>Nome</legend>
 
-		<input type="hidden" name="id" value="${carro.getId()}">
+		<input type="hidden" name="id" value="${cliente.getId()}">
 
 		<div class="editor-label">
 			<label>Nome</label>
 		</div>
 		<div class="editor-field">
-			<input type="text" name="nome" value="${carro.getNome()}" class="form-control" placeholder="Nome">
+			<input type="text" name="nome" class="form-control" placeholder="Nome">
+		</div>
+
+		<div class="editor-label">
+			<label>CPF</label>
+		</div>
+		<div class="editor-field">
+			<input type="text" name="cpf" class="form-control" placeholder="CPF">
 		</div>
 		
 		<div class="editor-label">
-			<label>Placa</label>
+			<label>Endereço</label>
 		</div>
 		<div class="editor-field">
-			<input type="text" name="placa" value="${carro.getPlaca()}" class="form-control" placeholder="Placa">
-		</div>
-
-		<div class="editor-label">
-			<label>Ano</label>
-		</div>
-		<div class="editor-field">
-			<input type="text" name="ano" value="${carro.getAno()}" class="form-control" placeholder="Ano">
+			<input type="text" name="endereco" class="form-control" placeholder="Endereço">
 		</div>
 
 		<p>
-			<button type="submit" class="btn btn-primary">Editar</button>
+			<button type="submit" class="btn btn-primary">Criar</button>
 		</p>
 	</fieldset>
 </form>

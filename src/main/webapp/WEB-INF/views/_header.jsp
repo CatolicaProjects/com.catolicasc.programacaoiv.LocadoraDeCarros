@@ -45,6 +45,7 @@
 					<li class="active"><a href="#">Home</a></li>
 					<li><a href="#about">About</a></li>
 					<li><a href="${pageContext.request.contextPath}/carro/">Carros</a></li>
+					<li><a href="${pageContext.request.contextPath}/cliente/">Clientes</a></li>
 				</ul>
 			</div>
 			<!--/.nav-collapse -->
