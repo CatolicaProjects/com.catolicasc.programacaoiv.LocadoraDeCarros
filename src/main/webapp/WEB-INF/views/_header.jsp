@@ -46,6 +46,7 @@
 					<li><a href="#about">About</a></li>
 					<li><a href="${pageContext.request.contextPath}/carro/">Carros</a></li>
 					<li><a href="${pageContext.request.contextPath}/cliente/">Clientes</a></li>
+					<li><a href="${pageContext.request.contextPath}/categoria/">Categorias</a></li>
 				</ul>
 			</div>
 			<!--/.nav-collapse -->
