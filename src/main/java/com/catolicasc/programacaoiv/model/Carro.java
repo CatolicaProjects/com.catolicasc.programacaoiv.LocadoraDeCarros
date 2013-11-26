@@ -3,7 +3,7 @@ package com.catolicasc.programacaoiv.model;
 public class Carro {
 
 	private Long id;
-	private Long idcategoria;
+	private Long idCategoria;
 	private String placa;
 	private String nome;
 	private Integer ano;
@@ -17,12 +17,12 @@ public class Carro {
 		this.id = id;
 	}
 
-	public Long getIdcategoria() {
-		return idcategoria;
+	public Long getIdCategoria() {
+		return idCategoria;
 	}
 
-	public void setIdcategoria(Long idcategoria) {
-		this.idcategoria = idcategoria;
+	public void setIdCategoria(Long idCategoria) {
+		this.idCategoria = idCategoria;
 	}
 
 	public String getPlaca() {

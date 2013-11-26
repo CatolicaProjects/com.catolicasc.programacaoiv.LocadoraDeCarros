@@ -8,6 +8,8 @@
 	<tr>
 		<th></th>
 		<th>Preço</th>
+		<th>Categoria</th>
+		<th>Tipo Kilometragem</th>
 		<th></th>
 	</tr>
 
@@ -15,6 +17,8 @@
 		<tr>
 			<td><a href="${pageContext.request.contextPath}/precolocacao/edit?id=${precoLocacao.getId()}">${precoLocacao.getId()}</a></td>
 			<td>${precoLocacao.getPreco()}</td>
+			<td>${precoLocacao.getCategoria().getNome()}</td>
+			<td>${precoLocacao.getTpkm()}</td>
 			<td><a href="${pageContext.request.contextPath}/precolocacao/delete?id=${precoLocacao.getId()}">Remover</a>
 	</c:forEach>
 </table>

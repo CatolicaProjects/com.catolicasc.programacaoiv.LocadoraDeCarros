@@ -1,6 +1,8 @@
 package com.catolicasc.programacaoiv.model;
 
 public class Locacao {
+	public static final Integer TP_KM_LIVRE = 1;
+	public static final Integer TP_KM_PERCORRIDO = 2;
 
 	private Long id;
 	private Long idCarro;

@@ -10,6 +10,7 @@
 		<th>Nome</th>
 		<th>Placa</th>
 		<th>Ano</th>
+		<th>Categoria</th>
 		<th></th>
 	</tr>
 
@@ -19,6 +20,7 @@
 			<td>${carro.getNome()}</td>
 			<td>${carro.getPlaca()}</td>
 			<td>${carro.getAno()}</td>
+			<td>${carro.getCategoria().getNome()}</td>
 			<td><a href="${pageContext.request.contextPath}/carro/delete?id=${carro.getId()}">Remover</a>
 	</c:forEach>
 </table>

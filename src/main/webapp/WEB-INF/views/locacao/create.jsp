@@ -18,6 +18,32 @@
 		<div class="editor-field">
 			<input type="text" name="preco" class="form-control" placeholder="Preço">
 		</div>
+		
+		<div class="editor-label">
+			<label>Tipo Kilometragem</label>
+		</div>
+		<select class="form-control" name="tpkm">
+			<option value="1">KM LIVRE</option>
+			<option value="2">KM PERCORRIDO</option>
+		</select>
+		
+		<div class="editor-label">
+			<label>Preço Locação</label>
+		</div>
+		<select class="form-control" name="idPrecoLocacao">
+			<c:forEach items="${precoLocacoes}" var="precoLocacao">
+				<option value="${precoLocacao.getId()}">${precoLocacao.getId()}</option>
+			</c:forEach>
+		</select>
+		
+		<div class="editor-label">
+			<label>Carro</label>
+		</div>
+		<select class="form-control" name="idCarro">
+			<c:forEach items="${carros}" var="carro">
+				<option value="${carro.getId()}">${carro.getNome()}</option>
+			</c:forEach>
+		</select>
 
 		<p>
 			<button type="submit" class="btn btn-primary">Criar</button>
