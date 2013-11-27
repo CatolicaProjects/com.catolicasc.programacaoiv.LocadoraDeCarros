@@ -17,6 +17,7 @@ public class LocacaoController {
 	private LocacaoDao locacaoDao = new LocacaoDao();
 	private PrecoLocacaoDao precoLocacaoDao = new PrecoLocacaoDao();
 	private CarroDao carroDao = new CarroDao();
+	private ClienteDao clienteDao = new ClienteDao();
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String index(Model model) {
@@ -27,6 +28,9 @@ public class LocacaoController {
 
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public String create(Model model) {
+		List<Cliente> clientes = clienteDao.all();
+		model.addAttribute("clientes", clientes);
+		
 		List<PrecoLocacao> precoLocacoes = precoLocacaoDao.all();
 		model.addAttribute("precoLocacoes", precoLocacoes);
 		
@@ -40,6 +44,9 @@ public class LocacaoController {
 		PrecoLocacao precoLocacao = precoLocacaoDao.find(locacao.getIdPrecoLocacao());
 		locacao.setPrecoLocacao(precoLocacao);
 		
+		Cliente cliente = clienteDao.find(locacao.getIdCliente());
+		locacao.setCliente(cliente);
+		
 		Carro carro = carroDao.find(locacao.getIdCarro());
 		locacao.setCarro(carro);
 		
@@ -49,23 +56,26 @@ public class LocacaoController {
 
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
 	public String edit(String id, Model model) {
-		List<PrecoLocacao> precoLocacoes = precoLocacaoDao.all();
-		model.addAttribute("precoLocacoes", precoLocacoes);
-		
-		List<Carro> carros = carroDao.all();
-		model.addAttribute("carros", carros);
-		
 		Locacao locacao = locacaoDao.find(Long.parseLong(id));
 		model.addAttribute("locacao", locacao);
+		
+		List<PrecoLocacao> precoLocacoes = precoLocacaoDao.all();
+		model.addAttribute("precoLocacoes", precoLocacoes);
 		
 		PrecoLocacao precoLocacaoSelecionada = precoLocacaoDao.find(locacao.getIdPrecoLocacao());
 		model.addAttribute("precoLocacaoSelecionada", precoLocacaoSelecionada);
 		
+		List<Carro> carros = carroDao.all();
+		model.addAttribute("carros", carros);
+		
 		Carro carroSelecionada = carroDao.find(locacao.getIdCarro());
 		model.addAttribute("carroSelecionada", carroSelecionada);
 		
-		Integer tpkmSelecionada = locacao.getTpkm();
-		model.addAttribute("tpkmSelecionada", tpkmSelecionada);
+		List<Cliente> clientes = clienteDao.all();
+		model.addAttribute("clientes", clientes);
+		
+		Cliente clienteSelecionada = clienteDao.find(locacao.getIdCliente());
+		model.addAttribute("clienteSelecionada", clienteSelecionada);
 		return "locacao/edit";
 	}
 
@@ -76,6 +86,9 @@ public class LocacaoController {
 		
 		Carro carro = carroDao.find(locacao.getIdCarro());
 		locacao.setCarro(carro);
+		
+		Cliente cliente = clienteDao.find(locacao.getIdCliente());
+		locacao.setCliente(cliente);
 		
 		locacaoDao.edit(locacao);
 		return "redirect:";

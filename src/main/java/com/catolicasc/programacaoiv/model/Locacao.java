@@ -1,16 +1,16 @@
 package com.catolicasc.programacaoiv.model;
 
 public class Locacao {
-	public static final Integer TP_KM_LIVRE = 1;
-	public static final Integer TP_KM_PERCORRIDO = 2;
-
 	private Long id;
-	private Long idCarro;
-	private Long idPrecoLocacao;
-	private Double preco;
-	private Integer tpkm;
+
 	private Carro carro;
+	private Long idCarro;
+	
 	private PrecoLocacao precoLocacao;
+	private Long idPrecoLocacao;
+	
+	private Cliente cliente;
+	private Long idCliente;
 
 	public Long getId() {
 		return id;
@@ -36,22 +36,6 @@ public class Locacao {
 		this.idPrecoLocacao = idPrecoLocacao;
 	}
 
-	public Double getPreco() {
-		return preco;
-	}
-
-	public void setPreco(Double preco) {
-		this.preco = preco;
-	}
-
-	public Integer getTpkm() {
-		return tpkm;
-	}
-
-	public void setTpkm(Integer tpkm) {
-		this.tpkm = tpkm;
-	}
-
 	public Carro getCarro() {
 		return carro;
 	}
@@ -66,5 +50,21 @@ public class Locacao {
 
 	public void setPrecoLocacao(PrecoLocacao precoLocacao) {
 		this.precoLocacao = precoLocacao;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+	public Long getIdCliente() {
+		return idCliente;
+	}
+
+	public void setIdCliente(Long idCliente) {
+		this.idCliente = idCliente;
 	}
 }

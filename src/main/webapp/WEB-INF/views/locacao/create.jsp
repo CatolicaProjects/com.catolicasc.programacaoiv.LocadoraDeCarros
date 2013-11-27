@@ -11,21 +11,6 @@
 		<legend>Nome</legend>
 
 		<input type="hidden" name="id" value="${locacao.getId()}">
-
-		<div class="editor-label">
-			<label>Preço</label>
-		</div>
-		<div class="editor-field">
-			<input type="text" name="preco" class="form-control" placeholder="Preço">
-		</div>
-		
-		<div class="editor-label">
-			<label>Tipo Kilometragem</label>
-		</div>
-		<select class="form-control" name="tpkm">
-			<option value="1">KM LIVRE</option>
-			<option value="2">KM PERCORRIDO</option>
-		</select>
 		
 		<div class="editor-label">
 			<label>Preço Locação</label>
@@ -42,6 +27,15 @@
 		<select class="form-control" name="idCarro">
 			<c:forEach items="${carros}" var="carro">
 				<option value="${carro.getId()}">${carro.getNome()}</option>
+			</c:forEach>
+		</select>
+		
+		<div class="editor-label">
+			<label>Cliente</label>
+		</div>
+		<select class="form-control" name="idCliente">
+			<c:forEach items="${clientes}" var="cliente">
+				<option value="${cliente.getId()}">${cliente.getNome()}</option>
 			</c:forEach>
 		</select>
 

@@ -3,12 +3,14 @@ package com.catolicasc.programacaoiv.model;
 public class Carro {
 
 	private Long id;
-	private Long idCategoria;
+	
 	private String placa;
 	private String nome;
 	private Integer ano;
+	
 	private Categoria categoria;
-
+	private Long idCategoria;
+	
 	public Long getId() {
 		return id;
 	}

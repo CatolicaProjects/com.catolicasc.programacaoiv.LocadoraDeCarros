@@ -5,10 +5,12 @@ public class PrecoLocacao {
 	public static final Integer TP_KM_PERCORRIDO = 2;
 
 	private Long id;
-	private Long idCategoria;
+	
 	private Double preco;
 	private Integer tpkm;
+	
 	private Categoria categoria;
+	private Long idCategoria;
 
 	public Long getId() {
 		return id;
