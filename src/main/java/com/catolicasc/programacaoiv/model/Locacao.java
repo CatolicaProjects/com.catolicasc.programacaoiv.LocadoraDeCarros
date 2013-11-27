@@ -1,5 +1,7 @@
 package com.catolicasc.programacaoiv.model;
 
+import java.util.Date;
+
 public class Locacao {
 	private Long id;
 
@@ -11,6 +13,8 @@ public class Locacao {
 	
 	private Cliente cliente;
 	private Long idCliente;
+	
+	private Date dataLocacao;
 
 	public Long getId() {
 		return id;
@@ -66,5 +70,13 @@ public class Locacao {
 
 	public void setIdCliente(Long idCliente) {
 		this.idCliente = idCliente;
+	}
+
+	public Date getDataLocacao() {
+		return dataLocacao;
+	}
+
+	public void setDataLocacao(Date dataLocacao) {
+		this.dataLocacao = dataLocacao;
 	}
 }
