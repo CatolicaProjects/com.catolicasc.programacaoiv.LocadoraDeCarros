@@ -2,8 +2,8 @@ package com.catolicasc.programacaoiv.controller;
 
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,8 +16,10 @@ import com.catolicasc.programacaoiv.model.*;
 @RequestMapping(value = "/precolocacao")
 public class PrecoLocacaoController {
 
+	/*
 	private static final Logger logger = LoggerFactory
             .getLogger(HomeController.class);
+    */
 	
 	private PrecoLocacaoDao precoLocacaoDao = new PrecoLocacaoDao();
 	private CategoriaDao categoriaDao = new CategoriaDao();

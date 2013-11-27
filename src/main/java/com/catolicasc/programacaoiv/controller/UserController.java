@@ -2,6 +2,10 @@ package com.catolicasc.programacaoiv.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +18,8 @@ import com.catolicasc.programacaoiv.model.User;
 @RequestMapping(value = "/user")
 public class UserController {
 
+	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	
 	private UserDao usuarioDao = new UserDao();
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
@@ -21,6 +27,26 @@ public class UserController {
 		List<User> usuarios = usuarioDao.all();
 		model.addAttribute("usuarios", usuarios);
 		return "user/index";
+	}
+	
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String login(Model model) {
+		return "user/login";
+	}
+	
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String login(String name, HttpSession session) {
+		
+		logger.info("nome {}", name);
+		/*
+		if (user.getName().equals("admin") && user.getPassword().equals("admin")){
+			session.setAttribute("usuarioLogado", user);
+			return "home";
+		}
+		return "redirect:login";
+		*/
+		
+		return "home";
 	}
 
 	@RequestMapping(value = "/create", method = RequestMethod.GET)

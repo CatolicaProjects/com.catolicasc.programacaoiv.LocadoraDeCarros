@@ -12,10 +12,14 @@
 <title>Locadora de Carros</title>
 
 <!-- Bootstrap core CSS -->
-<link href="${pageContext.request.contextPath}/resources/dist/css/bootstrap.min.css" rel="stylesheet">
+<link
+	href="${pageContext.request.contextPath}/resources/dist/css/bootstrap.min.css"
+	rel="stylesheet">
 
 <!-- Custom styles for this template -->
-<link href="${pageContext.request.contextPath}/resources/dist/css/starter-template.css" rel="stylesheet">
+<link
+	href="${pageContext.request.contextPath}/resources/dist/css/starter-template.css"
+	rel="stylesheet">
 
 <!-- Just for debugging purposes. Don't actually copy this line! -->
 <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -43,12 +47,23 @@
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="#">Home</a></li>
-					<li><a href="#about">About</a></li>
+					<%
+						com.catolicasc.programacaoiv.model.User user = (com.catolicasc.programacaoiv.model.User) session
+								.getAttribute("usuarioLogado");
+
+						if (user != null) {
+					%>
+
 					<li><a href="${pageContext.request.contextPath}/carro/">Carros</a></li>
 					<li><a href="${pageContext.request.contextPath}/cliente/">Clientes</a></li>
 					<li><a href="${pageContext.request.contextPath}/categoria/">Categorias</a></li>
-					<li><a href="${pageContext.request.contextPath}/precolocacao/">Preço Locação</a></li>
+					<li><a href="${pageContext.request.contextPath}/precolocacao/">Preço
+							Locação</a></li>
 					<li><a href="${pageContext.request.contextPath}/locacao/">Locação</a></li>
+
+					<%
+						}
+					%>
 				</ul>
 			</div>
 			<!--/.nav-collapse -->
