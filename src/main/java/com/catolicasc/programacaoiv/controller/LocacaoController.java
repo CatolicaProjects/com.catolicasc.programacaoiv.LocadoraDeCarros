@@ -1,7 +1,11 @@
 package com.catolicasc.programacaoiv.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +18,9 @@ import com.catolicasc.programacaoiv.model.*;
 @RequestMapping(value = "/locacao")
 public class LocacaoController {
 
+	private static final Logger logger = LoggerFactory
+			.getLogger(HomeController.class);
+	
 	private LocacaoDao locacaoDao = new LocacaoDao();
 	private PrecoLocacaoDao precoLocacaoDao = new PrecoLocacaoDao();
 	private CarroDao carroDao = new CarroDao();
@@ -76,11 +83,15 @@ public class LocacaoController {
 		
 		Cliente clienteSelecionada = clienteDao.find(locacao.getIdCliente());
 		model.addAttribute("clienteSelecionada", clienteSelecionada);
+		
+		model.addAttribute("dataLocacaoSelecionada", locacao.getDataLocacao());
+		
+		logger.info("data de locação {}", locacao.getDataLocacaoFormatada());
 		return "locacao/edit";
 	}
 
 	@RequestMapping(value = "/edit", method = RequestMethod.POST)
-	public String edit(Locacao locacao) {
+	public String edit(Locacao locacao, String dataLocacao) {
 		PrecoLocacao precoLocacao = precoLocacaoDao.find(locacao.getIdPrecoLocacao());
 		locacao.setPrecoLocacao(precoLocacao);
 		
@@ -90,7 +101,12 @@ public class LocacaoController {
 		Cliente cliente = clienteDao.find(locacao.getIdCliente());
 		locacao.setCliente(cliente);
 		
+		Date data = new Date(dataLocacao);
+		locacao.setDataLocacao(data);
+		
 		locacaoDao.edit(locacao);
+		
+		logger.info("data de locação {}", data);
 		return "redirect:";
 	}
 

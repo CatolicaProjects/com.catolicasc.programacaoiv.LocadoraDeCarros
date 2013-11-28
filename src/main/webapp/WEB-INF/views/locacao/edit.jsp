@@ -1,8 +1,8 @@
 <%@ include file="../_header.jsp"%>
 
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 
 <h2>Create</h2>
 
@@ -11,7 +11,14 @@
 		<legend>Nome</legend>
 
 		<input type="hidden" name="id" value="${locacao.getId()}">
-		
+
+		<div class="editor-label">
+			<label>Data de Locação</label>
+		</div>
+		<div class="editor-field">
+			<input type="text" class="span2" value="${dataLocacaoSelecionada}" id="dp1" name="dataLocacao">
+		</div>
+
 		<div class="editor-label">
 			<label>Preço Locação</label>
 		</div>
@@ -27,7 +34,7 @@
 				</c:choose>
 			</c:forEach>
 		</select>
-		
+
 		<div class="editor-label">
 			<label>Carro</label>
 		</div>
@@ -43,7 +50,7 @@
 				</c:choose>
 			</c:forEach>
 		</select>
-		
+
 		<div class="editor-label">
 			<label>Cliente</label>
 		</div>
@@ -59,7 +66,7 @@
 				</c:choose>
 			</c:forEach>
 		</select>
-		
+
 		<p>
 			<button type="submit" class="btn btn-primary">Editar</button>
 		</p>
@@ -70,3 +77,11 @@
 	<a href="${pageContext.request.contextPath}/">Voltar</a>
 </div>
 <%@ include file="../_footer.jsp"%>
+
+<script>
+	$(function() {
+		$('#dp1').datepicker({
+			format : 'dd/mm/yyyy'
+		});
+	});
+</script>

@@ -20,6 +20,9 @@
 <link
 	href="${pageContext.request.contextPath}/resources/dist/css/starter-template.css"
 	rel="stylesheet">
+<link
+	href="${pageContext.request.contextPath}/resources/dist/css/datepicker.css"
+	rel="stylesheet">
 
 <!-- Just for debugging purposes. Don't actually copy this line! -->
 <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->

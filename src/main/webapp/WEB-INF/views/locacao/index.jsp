@@ -7,6 +7,7 @@
 <table>
 	<tr>
 		<th></th>
+		<th>Data de Locação</th>
 		<th>Preço Locação</th>
 		<th>Carro</th>
 		<th>Cliente</th>
@@ -16,6 +17,7 @@
 	<c:forEach items="${locacoes}" var="locacao">
 		<tr>
 			<td><a href="${pageContext.request.contextPath}/locacao/edit?id=${locacao.getId()}">${locacao.getId()}</a></td>
+			<td>${locacao.getDataLocacaoFormatada()}</td>
 			<td>${locacao.getPrecoLocacao().getId()}</td>
 			<td>${locacao.getCarro().getNome()}</td>
 			<td>${locacao.getCliente().getNome()}</td>

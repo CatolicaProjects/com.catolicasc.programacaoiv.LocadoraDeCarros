@@ -1,5 +1,6 @@
 package com.catolicasc.programacaoiv.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Locacao {
@@ -78,5 +79,9 @@ public class Locacao {
 
 	public void setDataLocacao(Date dataLocacao) {
 		this.dataLocacao = dataLocacao;
+	}
+	
+	public String getDataLocacaoFormatada() {
+		return new SimpleDateFormat("dd/MM/yyyy").format(this.getDataLocacao()) ;
 	}
 }
