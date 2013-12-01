@@ -60,8 +60,7 @@ public class Repository {
 		locacao.setCarro(carro);
 		locacao.setCliente(cliente);
 		locacao.setPrecoLocacao(precoLocacao);
-		Date date = new Date();
-		locacao.setDataLocacao(date);
+		locacao.setDataLocacao("01/12/2013");
 		new LocacaoDao().add(locacao);
 	}
 

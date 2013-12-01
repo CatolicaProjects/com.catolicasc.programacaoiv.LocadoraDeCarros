@@ -16,7 +16,7 @@
 			<label>Data de Locação</label>
 		</div>
 		<div class="editor-field">
-			<input type="text" class="span2" value="${dataLocacaoSelecionada}" id="dp1" name="dataLocacao">
+			<input type="text" class="span2" value="${locacao.getDataLocacao()}" id="dp1" name="dataLocacao">
 		</div>
 
 		<div class="editor-label">

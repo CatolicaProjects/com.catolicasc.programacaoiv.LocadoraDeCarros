@@ -17,7 +17,7 @@
 	<c:forEach items="${locacoes}" var="locacao">
 		<tr>
 			<td><a href="${pageContext.request.contextPath}/locacao/edit?id=${locacao.getId()}">${locacao.getId()}</a></td>
-			<td>${locacao.getDataLocacaoFormatada()}</td>
+			<td>${locacao.getDataLocacao()}</td>
 			<td>${locacao.getPrecoLocacao().getId()}</td>
 			<td>${locacao.getCarro().getNome()}</td>
 			<td>${locacao.getCliente().getNome()}</td>

@@ -86,7 +86,6 @@ public class LocacaoController {
 		
 		model.addAttribute("dataLocacaoSelecionada", locacao.getDataLocacao());
 		
-		logger.info("data de locação {}", locacao.getDataLocacaoFormatada());
 		return "locacao/edit";
 	}
 
@@ -101,12 +100,10 @@ public class LocacaoController {
 		Cliente cliente = clienteDao.find(locacao.getIdCliente());
 		locacao.setCliente(cliente);
 		
-		Date data = new Date(dataLocacao);
-		locacao.setDataLocacao(data);
+		locacao.setDataLocacao(dataLocacao);
 		
 		locacaoDao.edit(locacao);
 		
-		logger.info("data de locação {}", data);
 		return "redirect:";
 	}
 

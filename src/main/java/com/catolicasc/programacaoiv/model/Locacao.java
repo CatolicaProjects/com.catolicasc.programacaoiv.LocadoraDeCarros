@@ -15,7 +15,7 @@ public class Locacao {
 	private Cliente cliente;
 	private Long idCliente;
 	
-	private Date dataLocacao;
+	private String dataLocacao;
 
 	public Long getId() {
 		return id;
@@ -73,15 +73,11 @@ public class Locacao {
 		this.idCliente = idCliente;
 	}
 
-	public Date getDataLocacao() {
-		return dataLocacao;
+	public String getDataLocacao() {
+		return this.dataLocacao;
 	}
 
-	public void setDataLocacao(Date dataLocacao) {
+	public void setDataLocacao(String dataLocacao) {
 		this.dataLocacao = dataLocacao;
-	}
-	
-	public String getDataLocacaoFormatada() {
-		return new SimpleDateFormat("dd/MM/yyyy").format(this.getDataLocacao()) ;
 	}
 }
