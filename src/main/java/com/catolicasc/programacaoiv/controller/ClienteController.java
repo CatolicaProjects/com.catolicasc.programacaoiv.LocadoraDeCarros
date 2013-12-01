@@ -21,11 +21,16 @@ public class ClienteController {
 
 	private ClienteDao clienteDao = new ClienteDao();
 
+	private Integer isSuccess = -1;
+
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String index(Model model) {
 		logger.info("cliente index");
 		List<Cliente> clientes = clienteDao.all();
 		model.addAttribute("clientes", clientes);
+		
+		model.addAttribute("operacao", isSuccess);
+		this.isSuccess = -1;
 		return "cliente/index";
 	}
 
@@ -38,7 +43,12 @@ public class ClienteController {
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	public String create(Cliente cliente) {
 		logger.info(cliente.getNome());
-		clienteDao.add(cliente);
+
+		if (clienteDao.add(cliente)) {
+			this.isSuccess = 1;
+		} else {
+			this.isSuccess = 0;
+		}
 		return "redirect:";
 	}
 
@@ -53,7 +63,12 @@ public class ClienteController {
 	@RequestMapping(value = "/edit", method = RequestMethod.POST)
 	public String edit(Cliente cliente) {
 		logger.info("cliente edit {}", cliente.getId());
-		clienteDao.edit(cliente);
+
+		if (clienteDao.edit(cliente)) {
+			this.isSuccess = 1;
+		} else {
+			this.isSuccess = 0;
+		}
 		return "redirect:";
 	}
 
@@ -61,7 +76,12 @@ public class ClienteController {
 	public String delete(String id) {
 		logger.info("cliente delete {}", id);
 		Cliente cliente = clienteDao.find(Long.parseLong(id));
-		clienteDao.delete(cliente);
+
+		if (clienteDao.delete(cliente)) {
+			this.isSuccess = 1;
+		} else {
+			this.isSuccess = 0;
+		}
 		return "redirect:";
 	}
 }

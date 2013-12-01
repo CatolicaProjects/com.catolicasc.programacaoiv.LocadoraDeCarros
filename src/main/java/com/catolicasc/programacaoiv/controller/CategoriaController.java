@@ -21,11 +21,16 @@ public class CategoriaController {
 
 	private CategoriaDao categoriaDao = new CategoriaDao();
 
+	private Integer isSuccess = -1;
+
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String index(Model model) {
 		logger.info("categoria index");
 		List<Categoria> categorias = categoriaDao.all();
 		model.addAttribute("categorias", categorias);
+		
+		model.addAttribute("operacao", isSuccess);
+		this.isSuccess = -1;
 		return "categoria/index";
 	}
 
@@ -38,7 +43,12 @@ public class CategoriaController {
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	public String create(Categoria categoria) {
 		logger.info(categoria.getNome());
-		categoriaDao.add(categoria);
+
+		if (categoriaDao.add(categoria)) {
+			this.isSuccess = 1;
+		} else {
+			this.isSuccess = 0;
+		}
 		return "redirect:";
 	}
 
@@ -53,7 +63,12 @@ public class CategoriaController {
 	@RequestMapping(value = "/edit", method = RequestMethod.POST)
 	public String edit(Categoria categoria) {
 		logger.info("categoria edit {}", categoria.getId());
-		categoriaDao.edit(categoria);
+
+		if (categoriaDao.edit(categoria)) {
+			this.isSuccess = 1;
+		} else {
+			this.isSuccess = 0;
+		}
 		return "redirect:";
 	}
 
@@ -61,7 +76,12 @@ public class CategoriaController {
 	public String delete(String id) {
 		logger.info("categoria delete {}", id);
 		Categoria categoria = categoriaDao.find(Long.parseLong(id));
-		categoriaDao.delete(categoria);
+
+		if (categoriaDao.delete(categoria)) {
+			this.isSuccess = 1;
+		} else {
+			this.isSuccess = 0;
+		}
 		return "redirect:";
 	}
 }

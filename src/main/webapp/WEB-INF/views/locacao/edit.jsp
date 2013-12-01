@@ -26,10 +26,10 @@
 			<c:forEach items="${precoLocacoes}" var="precoLocacao">
 				<c:choose>
 					<c:when test="${precoLocacao eq precoLocacaoSelecionada}">
-						<option value="${precoLocacao.getId()}" selected>${precoLocacao.getId()}</option>
+						<option value="${precoLocacao.getId()}" selected>${precoLocacao.toString()}</option>
 					</c:when>
 					<c:otherwise>
-						<option value="${precoLocacao.getId()}">${precoLocacao.getId()}</option>
+						<option value="${precoLocacao.getId()}">${precoLocacao.toString()}</option>
 					</c:otherwise>
 				</c:choose>
 			</c:forEach>
@@ -74,14 +74,7 @@
 </form>
 
 <div>
-	<a href="${pageContext.request.contextPath}/">Voltar</a>
+	<a href="${pageContext.request.contextPath}/locacao/">Voltar</a>
 </div>
 <%@ include file="../_footer.jsp"%>
-
-<script>
-	$(function() {
-		$('#dp1').datepicker({
-			format : 'dd/mm/yyyy'
-		});
-	});
-</script>
+<%@ include file="locacao.js"%>

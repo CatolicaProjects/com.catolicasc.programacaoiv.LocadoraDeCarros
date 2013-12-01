@@ -35,7 +35,6 @@
 </head>
 
 <body>
-
 	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container">
 			<div class="navbar-header">
@@ -45,11 +44,11 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">Locadora de Carros</a>
+				<a class="navbar-brand" href="${pageContext.request.contextPath}/">Locadora
+					de Carros</a>
 			</div>
 			<div class="collapse navbar-collapse">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">Home</a></li>
+				<ul class="nav navbar-nav" id="menu">
 					<li><a href="${pageContext.request.contextPath}/carro/">Carros</a></li>
 					<li><a href="${pageContext.request.contextPath}/cliente/">Clientes</a></li>
 					<li><a href="${pageContext.request.contextPath}/categoria/">Categorias</a></li>
@@ -63,3 +62,17 @@
 	</div>
 
 	<div class="container">
+			
+		<div hidden="hidden" id="message-positive"
+			class="alert alert-success alert-dismissable">
+			<button type="button" class="close" data-dismiss="alert"
+				aria-hidden="true">&times;</button>
+			<strong>Sucesso!</strong> Registro salvo.
+		</div>
+
+		<div hidden="hidden" id="message-negative"
+			class="alert alert-danger alert-dismissable">
+			<button type="button" class="close" data-dismiss="alert"
+				aria-hidden="true">&times;</button>
+			<strong>Ops!</strong> Houve algum problema!
+		</div>

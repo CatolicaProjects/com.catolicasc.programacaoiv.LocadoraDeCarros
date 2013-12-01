@@ -40,6 +40,7 @@
 </form>
 
 <div>
-	<a href="${pageContext.request.contextPath}/">Voltar</a>
+	<a href="${pageContext.request.contextPath}/cliente/">Voltar</a>
 </div>
 <%@ include file="../_footer.jsp"%>
+<%@ include file="cliente.js"%>

@@ -15,9 +15,9 @@
 		<div class="editor-label">
 			<label>Preço</label>
 		</div>
-		<div class="editor-field">
-			<input type="text" name="preco" value="${precoLocacao.getPreco()}"
-				class="form-control" placeholder="Preço">
+		<div class="input-group">
+			<span class="input-group-addon">$</span> <input type="text" name="preco" id="preco" value="${precoLocacao.getPreco()}" id="preco" 
+				class="form-control"> <span class="input-group-addon">.00</span>
 		</div>
 
 		<div class="editor-label">
@@ -59,6 +59,7 @@
 </form>
 
 <div>
-	<a href="${pageContext.request.contextPath}/">Voltar</a>
+	<a href="${pageContext.request.contextPath}/precolocacao/">Voltar</a>
 </div>
 <%@ include file="../_footer.jsp"%>
+<%@ include file="precolocacao.js"%>

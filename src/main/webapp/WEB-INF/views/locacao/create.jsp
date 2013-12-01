@@ -4,11 +4,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<h2>Create</h2>
+<h2>Novo</h2>
 
 <form action="create" method="post">
 	<fieldset>
-		<legend>Nome</legend>
+		<legend>Nova locação:</legend>
 
 		<input type="hidden" name="id" value="${locacao.getId()}">
 
@@ -25,7 +25,7 @@
 		</div>
 		<select class="form-control" name="idPrecoLocacao">
 			<c:forEach items="${precoLocacoes}" var="precoLocacao">
-				<option value="${precoLocacao.getId()}">${precoLocacao.getId()}</option>
+				<option value="${precoLocacao.getId()}">${precoLocacao.toString()}</option>
 			</c:forEach>
 		</select>
 
@@ -48,20 +48,13 @@
 		</select>
 
 		<p>
-			<button type="submit" class="btn btn-primary">Criar</button>
+			<button type="submit" class="btn btn-success">Criar</button>
 		</p>
 	</fieldset>
 </form>
 
 <div>
-	<a href="${pageContext.request.contextPath}/">Voltar</a>
+	<a href="${pageContext.request.contextPath}/locacao/">Voltar</a>
 </div>
 <%@ include file="../_footer.jsp"%>
-
-<script>
-	$(function() {
-		$('#dp1').datepicker({
-			format : 'dd/mm/yyyy'
-		});
-	});
-</script>
+<%@ include file="locacao.js"%>

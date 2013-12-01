@@ -7,22 +7,37 @@ import com.catolicasc.programacaoiv.repository.Repository;
 
 public class CategoriaDao {
 
-	public void add(Categoria c) {
-		Long id = this.incrementId();
-		c.setId(id);
-		Repository.getInstance().categorias.add(c);
+	public boolean add(Categoria c) {
+		try {
+			Long id = this.incrementId();
+			c.setId(id);
+			Repository.getInstance().categorias.add(c);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
-	public void delete(Categoria c) {
-		Repository.getInstance().categorias.remove(c);
+	public boolean delete(Categoria c) {
+		try {
+			Repository.getInstance().categorias.remove(c);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
-	public void edit(Categoria c) {
-		Categoria x = this.find(c.getId());
-		Integer index = Repository.getInstance().categorias.indexOf(x);
-		Categoria oldX = Repository.getInstance().categorias.get(index);
-		this.delete(oldX);
-		this.add(c);
+	public boolean edit(Categoria c) {
+		try {
+			Categoria x = this.find(c.getId());
+			Integer index = Repository.getInstance().categorias.indexOf(x);
+			Categoria oldX = Repository.getInstance().categorias.get(index);
+			this.delete(oldX);
+			this.add(c);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
 	public Categoria find(Long id) {

@@ -5,10 +5,10 @@ public class PrecoLocacao {
 	public static final Integer TP_KM_PERCORRIDO = 2;
 
 	private Long id;
-	
+
 	private Double preco;
 	private Integer tpkm;
-	
+
 	private Categoria categoria;
 	private Long idCategoria;
 
@@ -50,5 +50,18 @@ public class PrecoLocacao {
 
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
+	}
+
+	public String getTipoKilometragem() {
+		if (this.tpkm == 1) {
+			return "KM LIVRE";
+		} else {
+			return "KM PERCORRIDO";
+		}
+	}
+
+	@Override
+	public String toString() {
+		return "[ R$" + this.getPreco() + " ] " + " [ " + this.getTipoKilometragem() + " ] " + " [ " + this.getCategoria().getNome() + " ]";
 	}
 }

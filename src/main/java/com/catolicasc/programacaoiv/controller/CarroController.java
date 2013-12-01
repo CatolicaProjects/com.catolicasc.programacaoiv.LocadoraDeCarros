@@ -17,10 +17,15 @@ public class CarroController {
 	private CarroDao carroDao = new CarroDao();
 	private CategoriaDao categoriaDao = new CategoriaDao();
 
+	private Integer isSuccess = -1;
+
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String index(Model model) {
 		List<Carro> carros = carroDao.all();
 		model.addAttribute("carros", carros);
+		
+		model.addAttribute("operacao", isSuccess);
+		this.isSuccess = -1;
 		return "carro/index";
 	}
 
@@ -35,8 +40,13 @@ public class CarroController {
 	public String create(Carro carro) {
 		Categoria categoria = categoriaDao.find(carro.getIdCategoria());
 		carro.setCategoria(categoria);
-		
-		carroDao.add(carro);
+
+		if (carroDao.add(carro)) {
+			this.isSuccess = 1;
+		} else {
+			this.isSuccess = 0;
+		}
+
 		return "redirect:";
 	}
 
@@ -44,11 +54,12 @@ public class CarroController {
 	public String edit(String id, Model model) {
 		List<Categoria> categorias = categoriaDao.all();
 		model.addAttribute("categorias", categorias);
-		
+
 		Carro carro = carroDao.find(Long.parseLong(id));
 		model.addAttribute("carro", carro);
-		
-		Categoria categoriaSelecionada = categoriaDao.find(carro.getIdCategoria());
+
+		Categoria categoriaSelecionada = categoriaDao.find(carro
+				.getIdCategoria());
 		model.addAttribute("categoriaSelecionada", categoriaSelecionada);
 		return "carro/edit";
 	}
@@ -57,15 +68,26 @@ public class CarroController {
 	public String edit(Carro carro) {
 		Categoria categoria = categoriaDao.find(carro.getIdCategoria());
 		carro.setCategoria(categoria);
-		
-		carroDao.edit(carro);
+
+		if (carroDao.edit(carro)) {
+			this.isSuccess = 1;
+		} else {
+			this.isSuccess = 0;
+		}
+
 		return "redirect:";
 	}
 
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
 	public String delete(String id) {
 		Carro carro = carroDao.find(Long.parseLong(id));
-		carroDao.delete(carro);
+
+		if (carroDao.delete(carro)) {
+			this.isSuccess = 1;
+		} else {
+			this.isSuccess = 0;
+		}
+
 		return "redirect:";
 	}
 }

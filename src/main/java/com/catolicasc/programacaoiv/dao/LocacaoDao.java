@@ -6,22 +6,39 @@ import com.catolicasc.programacaoiv.model.Locacao;
 import com.catolicasc.programacaoiv.repository.Repository;
 
 public class LocacaoDao {
-	public void add(Locacao c) {
-		Long id = this.incrementId();
-		c.setId(id);
-		Repository.getInstance().locacoes.add(c);
+	public boolean add(Locacao c) {
+		try {
+			Long id = this.incrementId();
+			c.setId(id);
+			Repository.getInstance().locacoes.add(c);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
-	public void delete(Locacao c) {
-		Repository.getInstance().locacoes.remove(c);
+	public boolean delete(Locacao c) {
+		try {
+			Repository.getInstance().locacoes.remove(c);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+
 	}
 
-	public void edit(Locacao c) {
-		Locacao x = this.find(c.getId());
-		Integer index = Repository.getInstance().locacoes.indexOf(x);
-		Locacao oldX = Repository.getInstance().locacoes.get(index);
-		this.delete(oldX);
-		this.add(c);
+	public boolean edit(Locacao c) {
+		try {
+			Locacao x = this.find(c.getId());
+			Integer index = Repository.getInstance().locacoes.indexOf(x);
+			Locacao oldX = Repository.getInstance().locacoes.get(index);
+			this.delete(oldX);
+			this.add(c);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+
 	}
 
 	public Locacao find(Long id) {

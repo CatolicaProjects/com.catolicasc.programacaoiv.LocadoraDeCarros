@@ -23,7 +23,7 @@
 			<label>CPF</label>
 		</div>
 		<div class="editor-field">
-			<input type="text" name="cpf" class="form-control" placeholder="CPF">
+			<input type="text" name="cpf" class="form-control" placeholder="CPF" id="cpf" value="00000000000">
 		</div>
 		
 		<div class="editor-label">
@@ -40,6 +40,7 @@
 </form>
 
 <div>
-	<a href="${pageContext.request.contextPath}/">Voltar</a>
+	<a href="${pageContext.request.contextPath}/cliente/">Voltar</a>
 </div>
 <%@ include file="../_footer.jsp"%>
+<%@ include file="cliente.js"%>

@@ -24,7 +24,7 @@
 			<label>Placa</label>
 		</div>
 		<div class="editor-field">
-			<input type="text" name="placa" value="${carro.getPlaca()}"
+			<input type="text" name="placa" value="${carro.getPlaca()}" id="placa"
 				class="form-control" placeholder="Placa">
 		</div>
 
@@ -32,7 +32,7 @@
 			<label>Ano</label>
 		</div>
 		<div class="editor-field">
-			<input type="text" name="ano" value="${carro.getAno()}"
+			<input type="text" name="ano" value="${carro.getAno()}" id="ano"
 				class="form-control" placeholder="Ano">
 		</div>
 
@@ -59,6 +59,7 @@
 </form>
 
 <div>
-	<a href="${pageContext.request.contextPath}/">Voltar</a>
+	<a href="${pageContext.request.contextPath}/carro/">Voltar</a>
 </div>
 <%@ include file="../_footer.jsp"%>
+<%@ include file="carro.js"%>

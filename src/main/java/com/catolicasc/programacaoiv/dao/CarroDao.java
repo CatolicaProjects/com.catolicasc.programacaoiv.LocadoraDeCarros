@@ -6,22 +6,37 @@ import java.util.List;
 
 public class CarroDao {
 
-	public void add(Carro carro) {
-		Long id = this.incrementId();
-		carro.setId(id);
-		Repository.getInstance().carros.add(carro);
+	public boolean add(Carro carro) {
+		try {
+			Long id = this.incrementId();
+			carro.setId(id);
+			Repository.getInstance().carros.add(carro);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
-	public void delete(Carro carro) {
-		Repository.getInstance().carros.remove(carro);
+	public boolean delete(Carro carro) {
+		try {
+			Repository.getInstance().carros.remove(carro);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
-	public void edit(Carro carro) {
-		Carro c = this.find(carro.getId());
-		Integer index = Repository.getInstance().carros.indexOf(c);
-		Carro oldC = Repository.getInstance().carros.get(index);
-		this.delete(oldC);
-		this.add(carro);
+	public boolean edit(Carro carro) {
+		try {
+			Carro c = this.find(carro.getId());
+			Integer index = Repository.getInstance().carros.indexOf(c);
+			Carro oldC = Repository.getInstance().carros.get(index);
+			this.delete(oldC);
+			this.add(carro);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
 	public Carro find(Long id) {

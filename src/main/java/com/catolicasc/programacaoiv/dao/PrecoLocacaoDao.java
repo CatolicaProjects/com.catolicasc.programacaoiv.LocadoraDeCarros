@@ -6,22 +6,38 @@ import com.catolicasc.programacaoiv.model.PrecoLocacao;
 import com.catolicasc.programacaoiv.repository.Repository;
 
 public class PrecoLocacaoDao {
-	public void add(PrecoLocacao c) {
-		Long id = this.incrementId();
-		c.setId(id);
-		Repository.getInstance().precoLocacoes.add(c);
+	public boolean add(PrecoLocacao c) {
+		try {
+			Long id = this.incrementId();
+			c.setId(id);
+			Repository.getInstance().precoLocacoes.add(c);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
-	public void delete(PrecoLocacao c) {
-		Repository.getInstance().precoLocacoes.remove(c);
+	public boolean delete(PrecoLocacao c) {
+		try {
+			Repository.getInstance().precoLocacoes.remove(c);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
-	public void edit(PrecoLocacao c) {
-		PrecoLocacao x = this.find(c.getId());
-		Integer index = Repository.getInstance().precoLocacoes.indexOf(x);
-		PrecoLocacao oldX = Repository.getInstance().precoLocacoes.get(index);
-		this.delete(oldX);
-		this.add(c);
+	public boolean edit(PrecoLocacao c) {
+		try {
+			PrecoLocacao x = this.find(c.getId());
+			Integer index = Repository.getInstance().precoLocacoes.indexOf(x);
+			PrecoLocacao oldX = Repository.getInstance().precoLocacoes
+					.get(index);
+			this.delete(oldX);
+			this.add(c);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
 	public PrecoLocacao find(Long id) {

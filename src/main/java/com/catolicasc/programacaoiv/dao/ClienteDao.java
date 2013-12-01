@@ -6,22 +6,37 @@ import com.catolicasc.programacaoiv.model.Cliente;
 import com.catolicasc.programacaoiv.repository.Repository;
 
 public class ClienteDao {
-	public void add(Cliente c) {
-		Long id = this.incrementId();
-		c.setId(id);
-		Repository.getInstance().clientes.add(c);
+	public boolean add(Cliente c) {
+		try {
+			Long id = this.incrementId();
+			c.setId(id);
+			Repository.getInstance().clientes.add(c);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
-	public void delete(Cliente c) {
-		Repository.getInstance().clientes.remove(c);
+	public boolean delete(Cliente c) {
+		try {
+			Repository.getInstance().clientes.remove(c);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
-	public void edit(Cliente c) {
-		Cliente x = this.find(c.getId());
-		Integer index = Repository.getInstance().clientes.indexOf(x);
-		Cliente oldX = Repository.getInstance().clientes.get(index);
-		this.delete(oldX);
-		this.add(c);
+	public boolean edit(Cliente c) {
+		try {
+			Cliente x = this.find(c.getId());
+			Integer index = Repository.getInstance().clientes.indexOf(x);
+			Cliente oldX = Repository.getInstance().clientes.get(index);
+			this.delete(oldX);
+			this.add(c);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
 	public Cliente find(Long id) {

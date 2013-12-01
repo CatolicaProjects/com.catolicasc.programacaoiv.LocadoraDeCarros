@@ -1,8 +1,5 @@
 package com.catolicasc.programacaoiv.model;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 public class Locacao {
 	private Long id;
 
